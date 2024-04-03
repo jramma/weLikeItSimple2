@@ -39,60 +39,93 @@ class Scaffolding extends Base
                 ->addTab('header', [
                     'label' => __('Header', 'basics'),
                 ])
-                ->addRepeater('social_media', [
-                    'label' => __('Social Media', 'basics'),
-                    'layout' => 'block',
-                    'button_label' => __('Add Social Media', 'basics'),
-                ])
-                ->addSelect('social_media', [
-                    'label' => __('Social Media', 'basics'),
-                    'choices' => [
-                        'instagram' => __('Instagram', 'basics'),
-                        'facebook' => __('Facebook', 'basics'),
-                        'twitter' => __('Twitter', 'basics'),
-                    ],
+                ->addImage('header_logo', [
+                    'label' => 'Img logo',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => [],
                     'wrapper' => [
-                        'width' => '50',
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
                     ],
+                    'return_format' => 'array',
+                    'preview_size' => 'thumbnail',
+                    'library' => 'all',
+                    'min_width' => '',
+                    'min_height' => '',
+                    'min_size' => '',
+                    'max_width' => '',
+                    'max_height' => '',
+                    'max_size' => '',
+                    'mime_types' => '',
                 ])
-                ->addUrl('social_media_link', [
-                    'label' => __('Social Media Link', 'basics'),
-                    'wrapper' => [
-                        'width' => '50',
-                    ],
-                ])
-                ->endRepeater()
                 ->addTab('footer', [
                     'label' => __('Footer', 'basics'),
                 ])
-                ->addRepeater('footer_logos', [
-                    'label' => __('Logos', 'basics'),
-                    'layout' => 'block',
-                    'button_label' => __('Add Logo', 'basics'),
+                ->addText('footer_title')
+                ->addWysiwyg(
+                    'footer_text',
+                    [
+                        'media_upload' => 0,
+                        'toolbar' => 'title',
+                        'delay' => 1,
+                    ]
+                )
+                ->addText('footer_social_title')
+                ->addRepeater('footer_repeater_social', [
+                    'label' => 'Repeater Social',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => [],
+                    'wrapper' => [
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ],
+                    'collapsed' => 'select_icon',
+                    'min' => 0,
+                    'max' => 0,
+                    'layout' => 'table',
+                    'button_label' => '',
                 ])
-                ->addImage('logo', [
-                    'label' => __('Logo', 'basics'),
-                    'return_format' => 'id',
+                ->addSelect('select_icon', [
+                    'label' => 'Social Icon',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => [],
+                    'wrapper' => [
+                        'width' => '50%',
+                        'class' => '',
+                        'id' => '',
+                    ],
+                    'choices' => [
+                        'instagram' => 'Instagram',
+                        'behance' => 'Behance',
+                        'twitter' => 'Twitter',
+                    ],
+                    'default_value' => [],
+                    'allow_null' => 0,
+                    'multiple' => 0,
+                    'ui' => 0,
+                    'ajax' => 0,
+                    'return_format' => 'value',
+                    'placeholder' => '',
+                ])
+                ->addUrl('url_social', [
+                    'label' => 'URL social media',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => [],
+                    'wrapper' => [
+                        'width' => '50%',
+                        'class' => '',
+                        'id' => '',
+                    ],
+                    'default_value' => '',
+                    'placeholder' => '',
                 ])
                 ->endRepeater()
-                ->addText('footer_contact_title', [
-                    'label' => __('Footer Text', 'basics'),
-                ])
-                ->addWysiwyg('footer_contact_text', [
-                    'label' => __('Footer Text', 'basics'),
-                    'media_upload' => 0,
-                    'toolbar' => 'basic',
-                ])
-                ->addText('footer_newsletter_title', [
-                    'label' => __('Newsletter Title', 'basics'),
-                ])
-                ->addTextarea('footer_newsletter_text', [
-                    'label' => __('Newsletter Text', 'basics'),
-                    'new_lines' => 'br',
-                ])
-                ->addLink('footer_newsletter_button', [
-                    'label' => __('Newsletter Button', 'basics'),
-                ])
                 ->setLocation('options_page', '==', 'header-footer');
 
             \acf_add_local_field_group($header->build());

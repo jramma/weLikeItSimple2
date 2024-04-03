@@ -25,6 +25,12 @@ class App extends Composer
         return [
             'siteName' => $this->siteName(),
             'languages' => $this->languages(),
+            'header_logo' => get_field('header_logo', 'option'),
+            'footer_title' => get_field('footer_title', 'option'),
+            'footer_text' => get_field('footer_text', 'option'),
+            'footer_social_title' => get_field('footer_social_title', 'option'),
+            'footer_repeater_social' => get_field('footer_repeater_social', 'option'),
+
         ];
     }
 

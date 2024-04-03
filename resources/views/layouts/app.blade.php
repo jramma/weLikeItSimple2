@@ -1,15 +1,15 @@
-{{-- @include('partials.header') --}}
+@include('partials.header')
 
-  <main id="main" class="main">
+<main id="main" class="main">
     @yield('content')
-  </main>
+</main>
 
-{{-- @include('partials.footer') --}}
+@include('partials.footer')
 
 {{-- Grid && Screen size --}}
-@if(App::environment('development') || App::environment('staging'))
-<section id="debug-dev" class="absolute">
-  @include('debug.screen')
-  @include('debug.grid')
-</section>
+@if (App::environment('development') || App::environment('staging'))
+    <section id="debug-dev" class="absolute">
+        @include('debug.screen')
+        @include('debug.grid')
+    </section>
 @endif
