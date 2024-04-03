@@ -7,17 +7,17 @@ use App\Models\Post;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class BasicsBlock extends Block
+class HeaderBlock extends Block
 {
 
-    const OBJECT_NAME = 'basics-block';
+    const OBJECT_NAME = 'header-block';
 
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Basics Block';
+    public $name = 'Header Block';
 
     /**
      * The block slug.
@@ -31,7 +31,7 @@ class BasicsBlock extends Block
      *
      * @var string
      */
-    public $description = 'A simple Basics Block block.';
+    public $description = 'A simple Header Block block.';
 
     /**
      * The block category.
@@ -121,15 +121,7 @@ class BasicsBlock extends Block
      * @var array
      */
     public $styles = [
-        [
-            'name' => 'light',
-            'label' => 'Light',
-            'isDefault' => true,
-        ],
-        [
-            'name' => 'dark',
-            'label' => 'Dark',
-        ]
+
     ];
 
     /**
@@ -138,11 +130,7 @@ class BasicsBlock extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+
     ];
 
     /**
@@ -162,21 +150,31 @@ class BasicsBlock extends Block
      */
     public function fields()
     {
-        $basicsBlock = new FieldsBuilder('basics_block');
+        $basicsBlock = new FieldsBuilder('header_block');
 
         $basicsBlock
-            ->addText('title')
-            ->addWysiwyg(
-                'text',
-                [
-                    'media_upload' => 0,
-                    'toolbar' => 'title',
-                    'delay' => 1,
-                ]
-            )
-            ->addRepeater('items')
-            ->addText('item')
-            ->endRepeater();
+        ->addImage('image_header', [
+            'label' => 'Image Field',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => [],
+            'wrapper' => [
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ],
+            'return_format' => 'array',
+            'preview_size' => 'thumbnail',
+            'library' => 'all',
+            'min_width' => '',
+            'min_height' => '',
+            'min_size' => '',
+            'max_width' => '',
+            'max_height' => '',
+            'max_size' => '',
+            'mime_types' => '',
+        ]);
+
 
         return $basicsBlock->build();
     }

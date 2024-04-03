@@ -14,7 +14,7 @@ class WordpressAdminTweaks extends Base
         $this->addAdminMenuSeparator();
         $this->registerNavMenus();
 
-        if (is_user_logged_in() && wp_get_current_user()->user_login == 'mortensen') {
+        if (is_user_logged_in() && wp_get_current_user()->user_login == 'admin') {
             return;
         }
 

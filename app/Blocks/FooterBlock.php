@@ -7,17 +7,17 @@ use App\Models\Post;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class BasicsBlock extends Block
+class FooterBlock extends Block
 {
 
-    const OBJECT_NAME = 'basics-block';
+    const OBJECT_NAME = 'footer-block';
 
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Basics Block';
+    public $name = 'Footer Block';
 
     /**
      * The block slug.
@@ -31,7 +31,7 @@ class BasicsBlock extends Block
      *
      * @var string
      */
-    public $description = 'A simple Basics Block block.';
+    public $description = 'A simple Footer Block block.';
 
     /**
      * The block category.
@@ -121,15 +121,7 @@ class BasicsBlock extends Block
      * @var array
      */
     public $styles = [
-        [
-            'name' => 'light',
-            'label' => 'Light',
-            'isDefault' => true,
-        ],
-        [
-            'name' => 'dark',
-            'label' => 'Dark',
-        ]
+
     ];
 
     /**
@@ -138,11 +130,7 @@ class BasicsBlock extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+
     ];
 
     /**
@@ -162,21 +150,73 @@ class BasicsBlock extends Block
      */
     public function fields()
     {
-        $basicsBlock = new FieldsBuilder('basics_block');
+        $basicsBlock = new FieldsBuilder('footer_block');
 
         $basicsBlock
             ->addText('title')
             ->addWysiwyg(
-                'text',
+                'text_footer',
                 [
                     'media_upload' => 0,
                     'toolbar' => 'title',
                     'delay' => 1,
                 ]
             )
-            ->addRepeater('items')
-            ->addText('item')
+            ->addText('social_title')
+            ->addRepeater('repeater_social', [
+                'label' => 'Repeater Social',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => [],
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'collapsed' => 'select_icon',
+                'min' => 0,
+                'max' => 0,
+                'layout' => 'table',
+                'button_label' => '',
+            ])
+            ->addSelect('select_icon', [
+                'label' => 'Social Icon',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => [],
+                'wrapper' => [
+                    'width' => '50%',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'choices' => [
+                    'instagram' => 'Instagram',
+                    'behance' => 'Behance',
+                    'twitter' => 'Twitter',
+                ],
+                'default_value' => [],
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 0,
+                'ajax' => 0,
+                'return_format' => 'value',
+                'placeholder' => '',
+            ])
+            ->addUrl('url_social', [
+                'label' => 'URL social media',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => [],
+                'wrapper' => [
+                    'width' => '50%',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'default_value' => '',
+                'placeholder' => '',
+            ])
             ->endRepeater();
+
 
         return $basicsBlock->build();
     }

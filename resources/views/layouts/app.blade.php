@@ -1,10 +1,10 @@
-@include('partials.header')
+{{-- @include('partials.header') --}}
 
   <main id="main" class="main">
     @yield('content')
   </main>
 
-@include('partials.footer')
+{{-- @include('partials.footer') --}}
 
 {{-- Grid && Screen size --}}
 @if(App::environment('development') || App::environment('staging'))

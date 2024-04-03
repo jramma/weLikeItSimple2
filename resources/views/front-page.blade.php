@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
-  @include('partials.slider')
+ @while(have_posts()) @php the_post() @endphp
+    @php the_content() @endphp
+  @endwhile
+  {{-- @include('partials.slider')
   @include('partials.text')
-  @include('partials.content')
+  @include('partials.content') --}}
 @endsection

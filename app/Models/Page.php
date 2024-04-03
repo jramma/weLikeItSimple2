@@ -10,6 +10,12 @@ namespace App\Models;
 
 use App\Base\Base;
 use App\Blocks\BasicsBlock;
+use App\Blocks\SliderBlock;
+use App\Blocks\TextBlock;
+use App\Blocks\ContentBlock;
+use App\Blocks\FooterBlock;
+use App\Blocks\HeaderBlock;
+
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
 /**
@@ -70,6 +76,11 @@ class Page extends Base
             'core/table',
 
             $prefix . BasicsBlock::OBJECT_NAME,
+            $prefix . SliderBlock::OBJECT_NAME,
+            $prefix . TextBlock::OBJECT_NAME,
+            $prefix . ContentBlock::OBJECT_NAME,
+            $prefix . FooterBlock::OBJECT_NAME,
+            $prefix . HeaderBlock::OBJECT_NAME,
         ];
 
         switch ($template) {
