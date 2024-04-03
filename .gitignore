@@ -1,0 +1,11 @@
+/node_modules
+/vendor
+/public
+.env
+.budfiles
+npm-debug.log
+yarn-error.log
+
+# Dependencies (Composer, Yarn)
+composer.lock
+yarn.lock

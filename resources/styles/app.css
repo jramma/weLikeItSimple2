@@ -1,0 +1,17 @@
+
+@import "swiper/swiper.min";
+@import "swiper/modules/navigation.min";
+@import "swiper/modules/pagination.min";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "common/global";
+
+/* Add .css separately */
+/* @import "common/fonts"; */
+/* @import "common/pages"; */
+/* @import "common/text"; */
+
+/* @import "components/buttons"; */
+@import "components/swipers";

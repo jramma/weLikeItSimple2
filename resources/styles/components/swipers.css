@@ -1,0 +1,6 @@
+.mySwiper .swiper-pagination-bullets {
+  @apply relative pt-16;
+  .swiper-pagination-bullet {
+    --swiper-theme-color: #000;
+  }
+}
